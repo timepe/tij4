@@ -1,4 +1,4 @@
-package chapter14.exception;
+package chapter12.exception;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

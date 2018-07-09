@@ -1,4 +1,4 @@
-package chapter14.exception;
+package chapter12.exception;
 
 import java.lang.reflect.Array;
 

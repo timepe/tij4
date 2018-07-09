@@ -1,4 +1,4 @@
-package chapter14.exception;
+package chapter12.exception;
 
 class VeryImportantException extends Exception {
     public String toString() {

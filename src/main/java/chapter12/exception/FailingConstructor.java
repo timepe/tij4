@@ -1,4 +1,4 @@
-package chapter14.exception;
+package chapter12.exception;
 class FailingConstructorException extends Exception {
     @Override
     public String getMessage() {

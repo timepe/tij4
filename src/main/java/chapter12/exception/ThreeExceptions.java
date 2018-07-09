@@ -1,4 +1,4 @@
-package chapter14.exception;
+package chapter12.exception;
 class FirstException extends Exception {
     @Override
     public String toString() {
