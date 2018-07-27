@@ -5,6 +5,25 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 采用工厂方法模式来创建
+ * +-----------+                               +-------------+
+ * |           |                               |             |
+ * |    Pet    +-----------------------------> | PetCreator  |
+ * |           |                               |             |
+ * +-----+-----+                               +-------+-----+
+ *       ^                                             ^
+ *       |                                             |
+ *       |                                             |
+ *       |                                             |
+ * +-----+-----+                                       |
+ * |           |                               +-------+------+
+ * |   Mouse   |                               |              |
+ * |           |                               |ForNameCreator|
+ * +-----------+                               |              |
+ *                                             +--------------+
+ *
+ */
 public abstract class PetCreator {
     private Random rand = new Random(47);
     public abstract List<Class<? extends Pet>> types();
