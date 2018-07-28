@@ -1,0 +1,30 @@
+@startuml
+Pet <|.. Dog
+Pet <|.. Cat
+PetCreator <|.. ForNameCreator
+PetCreator <|.. LiteralPetCreator
+PetCreator --> Pet
+Pets --o PetCreator
+
+class PetCreator {
+    Random rand
+    + Pet randomPet()
+    + Pet[] createArray()
+    + ArrayList<Pet> arrayList()
+}
+
+class ForNameCreator {
+    - {static} List<Class<? extends Pet>> types
+    - {static} String[] typeNames
+    - {static} void loader()
+
+    + List<Class<? extends Pet>> types()
+}
+
+class LiteralPetCreator {
+    + {static} List<Class<? extends Pet>> allTypes
+    - {static} List<Class<? extends Pet>> types
+
+    + List<Class<? extends Pet>> types()
+}
+@enduml
