@@ -7,21 +7,7 @@ import java.util.Random;
 
 /**
  * 采用工厂方法模式来创建
- * +-----------+                               +-------------+
- * |           |                               |             |
- * |    Pet    +-----------------------------> | PetCreator  |
- * |           |                               |             |
- * +-----+-----+                               +-------+-----+
- *       ^                                             ^
- *       |                                             |
- *       |                                             |
- *       |                                             |
- * +-----+-----+                                       |
- * |           |                               +-------+------+
- * |   Mouse   |                               |              |
- * |           |                               |ForNameCreator|
- * +-----------+                               |              |
- *                                             +--------------+
+ * docs/Pet.puml
  *
  */
 public abstract class PetCreator {
@@ -41,7 +27,7 @@ public abstract class PetCreator {
     public Pet[] createArray(int size) {
         Pet[] result = new Pet[size];
         for (int i = 0; i < size; i++) {
-            result[i] = randomPet();
+                result[i] = randomPet();
         }
 
         return result;
