@@ -10,23 +10,33 @@ class Part {
         return getClass().getSimpleName();
     }
 
-    static List<Factory<? extends Part>> partFactories =
-            new ArrayList<Factory<? extends Part>>();
+//    static List<Factory<? extends Part>> partFactories =
+//            new ArrayList<Factory<? extends Part>>();
+      static List<Class<?>> partFactories =
+            new ArrayList<Class<?>>();
+
 
     static {
-        partFactories.add(new FuelFilter.Factory());
-        partFactories.add(new AirFilter.Factory());
-        partFactories.add(new CabinAirFilter.Factory());
-        partFactories.add(new OilFilter.Factory());
-        partFactories.add(new FanBelt.Factory());
-        partFactories.add(new PowerSteeringBelt.Factory());
-        partFactories.add(new GeneratorBelt.Factory());
+        partFactories.add(FuelFilter.Factory.class);
+        partFactories.add(AirFilter.Factory.class);
+        partFactories.add(CabinAirFilter.Factory.class);
+        partFactories.add(OilFilter.Factory.class);
+        partFactories.add(FanBelt.Factory.class);
+        partFactories.add(PowerSteeringBelt.class);
+        partFactories.add(GeneratorBelt.Factory.class);
     }
 
     private static Random rand = new Random(47);
     public static Part createRandom() {
         int n = rand.nextInt(partFactories.size());
-        return partFactories.get(n).create();
+        try {
+            Factory<Part> factory = (Factory<Part>)partFactories.get(n).newInstance();
+            return factory.create();
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
