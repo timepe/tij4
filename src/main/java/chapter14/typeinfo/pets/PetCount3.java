@@ -14,6 +14,12 @@ public class PetCount3 {
 
         public void count(Pet pet) {
             for(Map.Entry<Class<? extends  Pet>, Integer> pair : entrySet()) {
+                /**
+                 * 此处需要注意：
+                 * x instanceof Object 等价于 Object.class.isInstance(x)
+                 * 由于无法在数组中存储Object本身，只能存储Object.class对象，所以
+                 * 此处只能使用isInstance.
+                 */
                 if(pair.getKey().isInstance(pet))
                     put(pair.getKey(), pair.getValue() + 1);
             }

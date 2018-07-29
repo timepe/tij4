@@ -12,8 +12,8 @@ class Part {
 
 //    static List<Factory<? extends Part>> partFactories =
 //            new ArrayList<Factory<? extends Part>>();
-      static List<Class<?>> partFactories =
-            new ArrayList<Class<?>>();
+      static List<Class<? extends Factory>> partFactories =
+            new ArrayList<Class<? extends Factory>>();
 
 
     static {
@@ -22,7 +22,7 @@ class Part {
         partFactories.add(CabinAirFilter.Factory.class);
         partFactories.add(OilFilter.Factory.class);
         partFactories.add(FanBelt.Factory.class);
-        partFactories.add(PowerSteeringBelt.class);
+        partFactories.add(PowerSteeringBelt.Factory.class);
         partFactories.add(GeneratorBelt.Factory.class);
     }
 

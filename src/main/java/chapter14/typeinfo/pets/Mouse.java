@@ -8,4 +8,10 @@ public class Mouse extends Rodent {
     public Mouse() {
         super();
     }
+
+    public static class PetFactory implements chapter14.typeinfo.pets.PetFactory<Mouse> {
+        public Mouse create() {
+            return new Mouse();
+        }
+    }
 }

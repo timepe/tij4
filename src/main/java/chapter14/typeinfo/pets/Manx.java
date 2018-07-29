@@ -8,4 +8,10 @@ public class Manx extends Cat {
     public Manx() {
         super();
     }
+
+    public static class PetFactory implements chapter14.typeinfo.pets.PetFactory<Manx> {
+        public Manx create() {
+            return new Manx();
+        }
+    }
 }
